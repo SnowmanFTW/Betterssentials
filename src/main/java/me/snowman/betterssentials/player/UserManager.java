@@ -14,6 +14,12 @@ public class UserManager {
                 return user;
             }
         }
-        return new User(player);
+        return createUser(player);
+    }
+
+    public User createUser(Player player){
+        User user = new User(player);
+        users.add(user);
+        return user;
     }
 }

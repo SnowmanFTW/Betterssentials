@@ -1,5 +1,6 @@
 package me.snowman.betterssentials.player;
 
+import org.bukkit.ChatColor;
 import org.bukkit.OfflinePlayer;
 import org.bukkit.conversations.Conversable;
 import org.bukkit.entity.HumanEntity;
@@ -26,6 +27,10 @@ public class User {
 
     public boolean isAfk() {
         return isAfk;
+    }
+
+    public void sendMessage(String message){
+        player.sendMessage(ChatColor.translateAlternateColorCodes('&', message));
     }
 
     public void setAfk(boolean afk) {

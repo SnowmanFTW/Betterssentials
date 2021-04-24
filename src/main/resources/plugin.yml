@@ -2,3 +2,11 @@ name: Betterssentials
 main: me.snowman.betterssentials.Betterssentials
 version: 2.0.0
 author: SnowmanFTW
+
+commands:
+  afk:
+    description: Sets your afk status
+    usage: /<command>
+permissions:
+  betterssentials.afk:
+    description: Permisssion of afk command
