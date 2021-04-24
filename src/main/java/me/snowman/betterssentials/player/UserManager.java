@@ -22,4 +22,8 @@ public class UserManager {
         users.add(user);
         return user;
     }
+
+    public void removeUser(User user){
+        users.remove(user);
+    }
 }

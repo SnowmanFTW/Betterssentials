@@ -1,0 +1,6 @@
+#Prefix
+Prefix: "&6Betterssentials &c>> "
+
+#AFK command
+IsAFK: "&7* &4%player% &7is now AFK."
+IsNotAFK: "&7* &4%player% &7is no longer AFK."

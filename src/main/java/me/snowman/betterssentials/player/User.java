@@ -25,6 +25,10 @@ public class User {
         return player.getUniqueId();
     }
 
+    public String getName(){
+        return player.getName();
+    }
+
     public boolean isAfk() {
         return isAfk;
     }
