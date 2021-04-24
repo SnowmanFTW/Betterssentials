@@ -3,9 +3,9 @@ plugins {
 }
 String packagePath = 'me.snowman.betterssentials'
 group packagePath
-version '2.0.0 DEV22042021'
+version '2.0.0'
+sourceCompatibility = 1.11
 
-libsDirName = 'C:\\Users\\Snowman\\Desktop\\Code\\TestServer\\plugins'
 jar {
     archiveName 'Betterssentials.jar'
 }
