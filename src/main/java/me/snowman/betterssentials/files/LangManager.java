@@ -20,8 +20,8 @@ public class LangManager {
         final String lang = betterssentials.getConfig().getString("lang");
         if(!betterssentials.getDataFolder().exists()){
             boolean wasSuccessful = betterssentials.getDataFolder().mkdir();
-            if(wasSuccessful) betterssentials.getServer().getConsoleSender().sendMessage("Messages file created with lang: " + lang);
-            else betterssentials.getServer().getConsoleSender().sendMessage("Messages file could not be created!");
+            if(wasSuccessful) betterssentials.getServer().getConsoleSender().sendMessage("Betterssentials folder created!");
+            else betterssentials.getServer().getConsoleSender().sendMessage("Betterssentials folder could not be created!");
         }
 
         File file = new File(betterssentials.getDataFolder(), "messages-" + lang + ".yml");

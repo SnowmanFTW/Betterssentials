@@ -1,5 +1,6 @@
 package me.snowman.betterssentials.player;
 
+import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.OfflinePlayer;
 import org.bukkit.conversations.Conversable;
@@ -12,10 +13,13 @@ import java.util.UUID;
 public class User {
     private final Player player;
     private boolean isAfk = false;
+    private int balance = 0;
 
     public User(Player player){
         this.player = player;
     }
+
+    public User(String playerName){ this.player = Bukkit.getPlayer(playerName); }
 
     public Player getPlayer() {
         return player;
@@ -39,5 +43,13 @@ public class User {
 
     public void setAfk(boolean afk) {
         isAfk = afk;
+    }
+
+    public int getBalance() {
+        return balance;
+    }
+
+    public void setBalance(int balance) {
+        this.balance = balance;
     }
 }
