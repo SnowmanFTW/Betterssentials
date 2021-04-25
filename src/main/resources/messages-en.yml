@@ -4,3 +4,7 @@ Prefix: "&6Betterssentials &c>> "
 #AFK command
 IsAFK: "&7* &4%player% &7is now AFK."
 IsNotAFK: "&7* &4%player% &7is no longer AFK."
+
+#Balance command
+BalancePlayer: "&aBalance: &c%money_sign%%money%"
+BalanceTarget: "&aBalance of &4%player%&a: &c%money_sign%%money%"

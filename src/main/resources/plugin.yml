@@ -6,7 +6,12 @@ author: SnowmanFTW
 commands:
   afk:
     description: Sets your afk status
-    usage: /<command>
+    usage: /<command> [player]
+  balance:
+    description: Shows your in game balance
+    usage: /<command> [player]
 permissions:
   betterssentials.afk:
     description: Permisssion of afk command
+  betterssneitlas.balance:
+    description: Permission of balance command

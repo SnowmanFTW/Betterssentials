@@ -22,6 +22,7 @@ public class UserInit implements Listener {
     @EventHandler
     public void removeUser(PlayerQuitEvent event){
         User user = userManager.getUser(event.getPlayer());
+        userManager.saveUser(user);
         userManager.removeUser(user);
     }
 }

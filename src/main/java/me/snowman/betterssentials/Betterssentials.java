@@ -17,6 +17,7 @@ public class Betterssentials extends JavaPlugin {
         pluginUtils.registerEvents();
 
         langManager.setupMessages();
+        saveDefaultConfig();
     }
 
     @Override

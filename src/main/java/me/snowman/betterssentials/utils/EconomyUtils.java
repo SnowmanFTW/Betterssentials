@@ -46,19 +46,18 @@ public class EconomyUtils implements Economy {
 
     @Override
     public String currencyNamePlural() {
-        return "$";
+        return betterssentials.getConfig().getString("money-sign");
     }
 
     @Override
     public String currencyNameSingular() {
-        return "$";
+        return betterssentials.getConfig().getString("money-sign");
     }
 
     @Override
     public boolean hasAccount(String playerName) {
         User user = userManager.getUser(playerName);
-        if(userManager.existsUser(user.getPlayer())) return true;
-        return false;
+        return userManager.existsUser(user.getPlayer());
     }
 
     @Override

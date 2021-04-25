@@ -7,6 +7,7 @@ import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.entity.Player;
 
 import java.io.File;
+import java.util.Objects;
 
 public class LangManager {
     private final Betterssentials betterssentials;
@@ -43,7 +44,12 @@ public class LangManager {
     }
 
     public String replacePlaceholders(User user, String message){
+        //Player related placeholders
         message = message.replace("%player%", user.getName());
+        message = message.replace("%money%", String.valueOf(user.getBalance()));
+
+        //Other placeholders
+        message = message.replace("%money_sign%", Objects.requireNonNull(betterssentials.getConfig().getString("money-sign")));
         return message;
     }
 }

@@ -2,6 +2,7 @@ package me.snowman.betterssentials.utils;
 
 import me.snowman.betterssentials.Betterssentials;
 import me.snowman.betterssentials.commands.Afk;
+import me.snowman.betterssentials.commands.Balance;
 import me.snowman.betterssentials.events.AfkListener;
 import me.snowman.betterssentials.events.UserInit;
 import me.snowman.betterssentials.files.LangManager;
@@ -21,6 +22,7 @@ public class PluginUtils {
     }
     public void registerCommands(){
         Objects.requireNonNull(betterssentials.getCommand("afk")).setExecutor(new Afk(userManager, langManager));
+        Objects.requireNonNull(betterssentials.getCommand("balance")).setExecutor(new Balance(userManager, langManager));
     }
 
     public void registerEvents(){

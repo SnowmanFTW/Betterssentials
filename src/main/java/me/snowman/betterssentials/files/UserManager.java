@@ -49,7 +49,7 @@ public class UserManager {
 
     public FileConfiguration getPlayer(User user) {
         UUID uuid = user.getUniqueId();
-        if (file == null || !file.getName().equalsIgnoreCase(uuid + ".yml")) {
+        if (file == null || !file.getName().equalsIgnoreCase(uuid + ".yml") || fileCfg == null) {
             file = new File(betterssentials.getDataFolder(), "players" + File.separator + uuid + ".yml");
             fileCfg = YamlConfiguration.loadConfiguration(file);
         }

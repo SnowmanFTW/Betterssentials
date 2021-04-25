@@ -37,18 +37,24 @@ public class UserManager {
 
     public User createUser(Player player){
         User user = new User(player);
-        users.add(user);
         if(!userManager.existsPlayer(player)) {
             userManager.setupPlayer(user);
             userManager.getPlayer(user).set("balance", 1);
             userManager.savePlayer();
         }
+        System.out.println(userManager.getPlayer(user).getInt("balance"));
         user.setBalance(userManager.getPlayer(user).getInt("balance"));
+        users.add(user);
         return user;
     }
 
     public void removeUser(User user){
         users.remove(user);
+    }
+
+    public void saveUser(User user){
+        userManager.getPlayer(user).set("balance", user.getBalance());
+        userManager.savePlayer();
     }
 
     public boolean existsUser(Player player){
