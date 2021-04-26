@@ -5,9 +5,18 @@ Prefix: "&6Betterssentials &c>> "
 PlayerNotOnline: "&cThat player is not online."
 
 #AFK command
+AFKUsage: "&cUsage: /%command% [player]"
 IsAFK: "&7* &4%player% &7is now AFK."
 IsNotAFK: "&7* &4%player% &7is no longer AFK."
 
 #Balance command
+BalanceUsage: "&cUsage: /%command% [player]"
 BalancePlayer: "&aBalance: &c%money_sign%%money%"
 BalanceTarget: "&aBalance of &4%player%&a: &c%money_sign%%money%"
+
+#Bam command
+BanUsage: "&cUsage: /%command% <player> [reason]"
+DefaultBan: "&cYou have been banned.\n&fThe Ban Hammer has spoken!"
+YouBanned: "&cYou have been banned.\n &6Reason:&r"
+NotBanned: "&6That player is not banned"
+Unbanned: "&6Player &4%player% &6unbanned &c%target%&6."

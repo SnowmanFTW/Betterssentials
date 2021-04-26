@@ -8,31 +8,25 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-public class Balance implements CommandExecutor {
+public class Ban implements CommandExecutor {
     private final UserManager userManager;
     private final LangManager langManager;
 
-    public Balance(UserManager userManager, LangManager langManager){
+    public Ban(UserManager userManager, LangManager langManager){
         this.userManager = userManager;
         this.langManager = langManager;
     }
 
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
-        if(args.length == 0 && !(sender instanceof Player)){ sender.sendMessage(langManager.getMessage(null, "BalanceUsage").replace("%command%", label)); return true;}
-        User user;
-        if(args.length == 0){
-            Player player = (Player) sender;
-            user = userManager.getUser(player);
-            user.sendMessage(langManager.getMessage(user, "BalancePlayer"));
-            return true;
-        }
-        user = userManager.getUser(args[0]);
+        if(args.length < 1){ sender.sendMessage(langManager.getMessage(null, "BanUsage").replace("%command%", label)); return true;}
+        User user = userManager.getUser(args[0]);
         if(user == null){
             sender.sendMessage(langManager.getMessage(null, "PlayerNotOnline"));
             return true;
         }
-        sender.sendMessage(langManager.getMessage(user, "BalanceTarget"));
+        user.setBanned(true);
+        user.getPlayer().kickPlayer("bruh");
         return true;
     }
 }

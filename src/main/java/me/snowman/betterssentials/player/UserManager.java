@@ -31,7 +31,7 @@ public class UserManager {
 
     public User getUser(String playerName){
         Player player = Bukkit.getPlayer(playerName);
-        if(player == null) return null;
+        if(player == null) return createOfflineUser(Bukkit.getOfflinePlayer(playerName));
         for(User user: users){
             if(player.getUniqueId().equals(user.getUniqueId())){
                 return user;
@@ -45,6 +45,7 @@ public class UserManager {
         if(!userManager.existsPlayer(player)) {
             userManager.setupPlayer(user);
             userManager.getPlayer(user).set("balance", 0);
+            userManager.getPlayer(user).set("banned", false);
             userManager.savePlayer();
         }
         user.setBalance(userManager.getPlayer(user).getInt("balance"));
@@ -57,9 +58,11 @@ public class UserManager {
         if(!userManager.existsPlayer(player.getUniqueId())) {
             userManager.setupPlayer(user);
             userManager.getPlayer(user).set("balance", 0);
+            userManager.getPlayer(user).set("banned", false);
             userManager.savePlayer();
         }
         user.setBalance(userManager.getPlayer(user).getInt("balance"));
+        user.setBanned(userManager.getPlayer(user).getBoolean("banned"));
         return user;
     }
 
@@ -69,6 +72,7 @@ public class UserManager {
 
     public void saveUser(User user){
         userManager.getPlayer(user).set("balance", user.getBalance());
+        userManager.getPlayer(user).set("banned", user.isBanned());
         userManager.savePlayer();
     }
 

@@ -19,7 +19,7 @@ public class Afk implements CommandExecutor {
     }
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args){
-        if(args.length == 0 && !(sender instanceof Player)){ sender.sendMessage("Usage"); return true;}
+        if(args.length == 0 && !(sender instanceof Player)){ sender.sendMessage(langManager.getMessage(null, "AFKUsage").replace("%command%", label)); return true;}
         User user;
         if(args.length == 0){
             Player player = (Player) sender;

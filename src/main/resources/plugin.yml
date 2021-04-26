@@ -10,13 +10,18 @@ commands:
     description: Sets your afk status
     usage: /<command> [player]
   balance:
-    description: Shows your in game balance
+    description: Shows your in-game balance
     usage: /<command> [player]
     aliases:
       - bal
       - money
+  ban:
+    description: Ban someone from the server
+    usage: /<command> <player> [reason]
 permissions:
   betterssentials.afk:
     description: Permisssion of afk command
   betterssneitlas.balance:
     description: Permission of balance command
+  betterssentials.ban:
+    description: Permission of ban command
