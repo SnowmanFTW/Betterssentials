@@ -49,6 +49,7 @@ public class LangManager {
         if(user != null) {
             message = message.replace("%player%", user.getName());
             message = message.replace("%money%", String.valueOf(user.getBalance()));
+            message = message.replace("%reason%", user.getBanMessage());
         }
 
         //Other placeholders

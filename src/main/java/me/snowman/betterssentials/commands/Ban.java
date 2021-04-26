@@ -6,7 +6,8 @@ import me.snowman.betterssentials.player.UserManager;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
-import org.bukkit.entity.Player;
+
+import java.util.Arrays;
 
 public class Ban implements CommandExecutor {
     private final UserManager userManager;
@@ -26,7 +27,16 @@ public class Ban implements CommandExecutor {
             return true;
         }
         user.setBanned(true);
-        user.getPlayer().kickPlayer("bruh");
+        if(args.length == 1){
+            user.setBanMessage(langManager.getMessage(user, "DefaultBan"));
+            user.getPlayer().kickPlayer(user.getBanMessage());
+            userManager.announceMessage(langManager.getMessage(user, "BanMessage"));
+            return true;
+        }
+        String reason = String.join(" ", Arrays.stream(args).skip(1).toArray(String[]::new));
+        user.setBanMessage(langManager.getMessage(null, "YouBanned").replace("%reason%", reason));
+        user.getPlayer().kickPlayer(user.getBanMessage());
+        userManager.announceMessage(langManager.getMessage(user, "BanMessage"));
         return true;
     }
 }

@@ -18,6 +18,9 @@ commands:
   ban:
     description: Ban someone from the server
     usage: /<command> <player> [reason]
+  unban:
+    description: Unban someone from the server
+    usage: /<command> <player>
 permissions:
   betterssentials.afk:
     description: Permisssion of afk command
@@ -25,3 +28,5 @@ permissions:
     description: Permission of balance command
   betterssentials.ban:
     description: Permission of ban command
+  betterssentials.unban:
+    description: Permission of unban command

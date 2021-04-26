@@ -16,7 +16,11 @@ BalanceTarget: "&aBalance of &4%player%&a: &c%money_sign%%money%"
 
 #Bam command
 BanUsage: "&cUsage: /%command% <player> [reason]"
+BanMessage: "&6Player &4%player% &6banned. Reason: %reason%"
 DefaultBan: "&cYou have been banned.\n&fThe Ban Hammer has spoken!"
-YouBanned: "&cYou have been banned.\n &6Reason:&r"
-NotBanned: "&6That player is not banned"
+YouBanned: "&cYou have been banned.\n &6Reason:&r %reason%"
+
+#Unban command
+UnbanUsage: "&cUsage: /%command% <player>"
 Unbanned: "&6Player &4%player% &6unbanned &c%target%&6."
+NotBanned: "&6That player is not banned"
