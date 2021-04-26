@@ -25,7 +25,14 @@ public class Balance implements CommandExecutor {
             Player player = (Player) sender;
             user = userManager.getUser(player);
             user.sendMessage(langManager.getMessage(user, "BalancePlayer"));
+            return true;
         }
+        user = userManager.getUser(args[0]);
+        if(user == null){
+            sender.sendMessage(langManager.getMessage(null, "PlayerNotOnline"));
+            return true;
+        }
+        sender.sendMessage(langManager.getMessage(user, "BalanceTarget"));
         return true;
     }
 }

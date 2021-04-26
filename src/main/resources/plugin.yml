@@ -12,6 +12,9 @@ commands:
   balance:
     description: Shows your in game balance
     usage: /<command> [player]
+    aliases:
+      - bal
+      - money
 permissions:
   betterssentials.afk:
     description: Permisssion of afk command
