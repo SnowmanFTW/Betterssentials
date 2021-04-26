@@ -1,10 +1,12 @@
 package me.snowman.betterssentials.player;
 
 import org.bukkit.Bukkit;
+import org.bukkit.OfflinePlayer;
 import org.bukkit.entity.Player;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 public class UserManager {
     private final List<User> users = new ArrayList<>();
@@ -39,12 +41,22 @@ public class UserManager {
         User user = new User(player);
         if(!userManager.existsPlayer(player)) {
             userManager.setupPlayer(user);
-            userManager.getPlayer(user).set("balance", 1);
+            userManager.getPlayer(user).set("balance", 0);
             userManager.savePlayer();
         }
-        System.out.println(userManager.getPlayer(user).getInt("balance"));
         user.setBalance(userManager.getPlayer(user).getInt("balance"));
         users.add(user);
+        return user;
+    }
+
+    public User createOfflineUser(OfflinePlayer player){
+        User user = new User((Player) null);
+        if(!userManager.existsPlayer(player.getUniqueId())) {
+            userManager.setupPlayer(user);
+            userManager.getPlayer(user).set("balance", 0);
+            userManager.savePlayer();
+        }
+        user.setBalance(userManager.getPlayer(user).getInt("balance"));
         return user;
     }
 
@@ -60,4 +72,6 @@ public class UserManager {
     public boolean existsUser(Player player){
         return userManager.existsPlayer(player);
     }
+
+    public boolean existsUser(UUID uuid){ return userManager.existsPlayer(uuid); }
 }

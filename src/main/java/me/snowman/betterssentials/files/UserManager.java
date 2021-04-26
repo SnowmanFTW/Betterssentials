@@ -62,6 +62,11 @@ public class UserManager {
         return file.exists();
     }
 
+    public boolean existsPlayer(UUID uuid){
+        file = new File(betterssentials.getDataFolder(), "players" + File.separator + uuid + ".yml");
+        return file.exists();
+    }
+
     public void savePlayer() {
         try {
             fileCfg.save(file);

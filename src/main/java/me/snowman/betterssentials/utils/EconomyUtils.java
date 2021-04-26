@@ -6,7 +6,6 @@ import me.snowman.betterssentials.player.UserManager;
 import net.milkbowl.vault.economy.Economy;
 import net.milkbowl.vault.economy.EconomyResponse;
 import org.bukkit.OfflinePlayer;
-import org.bukkit.plugin.RegisteredServiceProvider;
 
 import java.util.List;
 
@@ -62,7 +61,7 @@ public class EconomyUtils implements Economy {
 
     @Override
     public boolean hasAccount(OfflinePlayer player) {
-        return false;
+        return userManager.existsUser(player.getUniqueId());
     }
 
     @Override
@@ -77,12 +76,13 @@ public class EconomyUtils implements Economy {
 
     @Override
     public double getBalance(String playerName) {
-        return 0;
+        User user = userManager.getUser(playerName);
+        return user.getBalance();
     }
 
     @Override
     public double getBalance(OfflinePlayer player) {
-        return 0;
+        return userManager.createOfflineUser(player).getBalance();
     }
 
     @Override
@@ -97,12 +97,16 @@ public class EconomyUtils implements Economy {
 
     @Override
     public boolean has(String playerName, double amount) {
-        return false;
+        User user = userManager.getUser(playerName);
+        int balance = user.getBalance();
+        return balance >= amount;
     }
 
     @Override
     public boolean has(OfflinePlayer player, double amount) {
-        return false;
+        User user = userManager.createOfflineUser(player);
+        int balance = user.getBalance();
+        return balance >= amount;
     }
 
     @Override
@@ -117,32 +121,64 @@ public class EconomyUtils implements Economy {
 
     @Override
     public EconomyResponse withdrawPlayer(String playerName, double amount) {
-        return null;
+        User user = userManager.getUser(playerName);
+        int balance = (int) (user.getBalance() - amount);
+        EconomyResponse response;
+        if(balance < 0){
+            response = new EconomyResponse(amount, user.getBalance(), EconomyResponse.ResponseType.FAILURE, "Not enough money");
+        }else{
+            response = new EconomyResponse(amount, user.getBalance(), EconomyResponse.ResponseType.SUCCESS, "Success");
+            user.setBalance(balance);
+            response.transactionSuccess();
+        }
+        return response;
     }
 
     @Override
     public EconomyResponse withdrawPlayer(OfflinePlayer player, double amount) {
-        return null;
+        User user = userManager.createOfflineUser(player);
+        int balance = (int) (user.getBalance() - amount);
+        EconomyResponse response;
+        if(balance < 0){
+            response = new EconomyResponse(amount, user.getBalance(), EconomyResponse.ResponseType.FAILURE, "Not enough money");
+        }else{
+            response = new EconomyResponse(amount, user.getBalance(), EconomyResponse.ResponseType.SUCCESS, "Success");
+            user.setBalance(balance);
+            response.transactionSuccess();
+        }
+        return response;
     }
 
     @Override
     public EconomyResponse withdrawPlayer(String playerName, String worldName, double amount) {
-        return null;
+        return new EconomyResponse(amount, 0, EconomyResponse.ResponseType.NOT_IMPLEMENTED, "Not implemented");
     }
 
     @Override
     public EconomyResponse withdrawPlayer(OfflinePlayer player, String worldName, double amount) {
-        return null;
+        return new EconomyResponse(amount, 0, EconomyResponse.ResponseType.NOT_IMPLEMENTED, "Not implemented");
     }
 
     @Override
     public EconomyResponse depositPlayer(String playerName, double amount) {
-        return null;
+        User user = userManager.getUser(playerName);
+        int balance = (int) (user.getBalance() + amount);
+        EconomyResponse response;
+        response = new EconomyResponse(amount, user.getBalance(), EconomyResponse.ResponseType.SUCCESS, "Success");
+        user.setBalance(balance);
+        response.transactionSuccess();
+        return response;
     }
 
     @Override
     public EconomyResponse depositPlayer(OfflinePlayer player, double amount) {
-        return null;
+        User user = userManager.createOfflineUser(player);
+        int balance = (int) (user.getBalance() + amount);
+        EconomyResponse response;
+        response = new EconomyResponse(amount, user.getBalance(), EconomyResponse.ResponseType.SUCCESS, "Success");
+        user.setBalance(balance);
+        response.transactionSuccess();
+        return response;
     }
 
     @Override
