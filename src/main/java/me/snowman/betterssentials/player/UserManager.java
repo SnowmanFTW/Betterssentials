@@ -1,12 +1,15 @@
 package me.snowman.betterssentials.player;
 
 import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
 import org.bukkit.OfflinePlayer;
 import org.bukkit.entity.Player;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
+
+import static org.bukkit.Bukkit.getServer;
 
 public class UserManager {
     private final List<User> users = new ArrayList<>();
@@ -50,7 +53,7 @@ public class UserManager {
     }
 
     public User createOfflineUser(OfflinePlayer player){
-        User user = new User((Player) null);
+        User user = new User(player.getName());
         if(!userManager.existsPlayer(player.getUniqueId())) {
             userManager.setupPlayer(user);
             userManager.getPlayer(user).set("balance", 0);
@@ -74,4 +77,9 @@ public class UserManager {
     }
 
     public boolean existsUser(UUID uuid){ return userManager.existsPlayer(uuid); }
+
+    public void announceMessage(String message){
+        String finalMessage = ChatColor.translateAlternateColorCodes('&', message);
+        getServer().getOnlinePlayers().forEach(player -> player.sendMessage(finalMessage));
+    }
 }

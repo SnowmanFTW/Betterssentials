@@ -8,6 +8,8 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
+import static org.bukkit.Bukkit.getServer;
+
 public class Afk implements CommandExecutor {
     private final UserManager userManager;
     private final LangManager langManager;
@@ -24,11 +26,24 @@ public class Afk implements CommandExecutor {
             user = userManager.getUser(player);
             if(!user.isAfk()){
                 user.setAfk(true);
-                user.sendMessage(langManager.getMessage(user, "IsAFK"));
+                userManager.announceMessage(langManager.getMessage(user, "IsAFK"));
             }else{
                 user.setAfk(false);
-                user.sendMessage(langManager.getMessage(user, "IsNotAFK"));
+                userManager.announceMessage(langManager.getMessage(user, "IsNotAFK"));
             }
+            return true;
+        }
+        user = userManager.getUser(args[0]);
+        if(user == null){
+            sender.sendMessage(langManager.getMessage(null, "PlayerNotOnline"));
+            return true;
+        }
+        if(!user.isAfk()){
+            user.setAfk(true);
+            userManager.announceMessage(langManager.getMessage(user, "IsAFK"));
+        }else{
+            user.setAfk(false);
+            userManager.announceMessage(langManager.getMessage(user, "IsNotAFK"));
         }
         return true;
     }

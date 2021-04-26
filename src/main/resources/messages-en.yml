@@ -1,6 +1,9 @@
 #Prefix
 Prefix: "&6Betterssentials &c>> "
 
+#Other
+PlayerNotOnline: "&cThat player is not online."
+
 #AFK command
 IsAFK: "&7* &4%player% &7is now AFK."
 IsNotAFK: "&7* &4%player% &7is no longer AFK."

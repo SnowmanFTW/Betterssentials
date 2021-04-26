@@ -12,14 +12,19 @@ import java.util.UUID;
 
 public class User {
     private final Player player;
+    private final String name;
     private boolean isAfk = false;
     private int balance = 0;
 
     public User(Player player){
         this.player = player;
+        this.name = player.getName();
     }
 
-    public User(String playerName){ this.player = Bukkit.getPlayer(playerName); }
+    public User(String playerName){
+        this.player = Bukkit.getPlayer(playerName);
+        this.name = playerName;
+    }
 
     public Player getPlayer() {
         return player;

@@ -3,6 +3,7 @@ package me.snowman.betterssentials.files;
 import me.snowman.betterssentials.Betterssentials;
 import me.snowman.betterssentials.player.User;
 import me.snowman.betterssentials.player.UserManager;
+import org.bukkit.ChatColor;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.entity.Player;
 
@@ -45,11 +46,13 @@ public class LangManager {
 
     public String replacePlaceholders(User user, String message){
         //Player related placeholders
-        message = message.replace("%player%", user.getName());
-        message = message.replace("%money%", String.valueOf(user.getBalance()));
+        if(user != null) {
+            message = message.replace("%player%", user.getName());
+            message = message.replace("%money%", String.valueOf(user.getBalance()));
+        }
 
         //Other placeholders
         message = message.replace("%money_sign%", Objects.requireNonNull(betterssentials.getConfig().getString("money-sign")));
-        return message;
+        return ChatColor.translateAlternateColorCodes('&', message);
     }
 }
