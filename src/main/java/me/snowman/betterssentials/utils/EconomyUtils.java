@@ -5,7 +5,9 @@ import me.snowman.betterssentials.player.User;
 import me.snowman.betterssentials.player.UserManager;
 import net.milkbowl.vault.economy.Economy;
 import net.milkbowl.vault.economy.EconomyResponse;
+import org.bukkit.ChatColor;
 import org.bukkit.OfflinePlayer;
+import org.bukkit.plugin.ServicePriority;
 
 import java.util.List;
 
@@ -269,5 +271,16 @@ public class EconomyUtils implements Economy {
     @Override
     public boolean createPlayerAccount(OfflinePlayer player, String worldName) {
         return false;
+    }
+
+    public void hook() {
+        betterssentials.getServer().getServicesManager().register(Economy.class, this, betterssentials, ServicePriority.Highest);
+        betterssentials.getServer().getConsoleSender().sendMessage(ChatColor.translateAlternateColorCodes('&', "&6Vault hooked into &cBetterssentials"));
+
+    }
+
+    public void unhook() {
+        betterssentials.getServer().getServicesManager().unregister(Economy.class, this);
+        betterssentials.getServer().getConsoleSender().sendMessage(ChatColor.translateAlternateColorCodes('&', "&6Vault unhooked into &cBetterssentials"));
     }
 }
