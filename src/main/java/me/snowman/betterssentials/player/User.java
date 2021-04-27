@@ -17,7 +17,7 @@ public class User {
     private boolean isAfk = false;
     private int balance = 0;
     private boolean banned = false;
-    private String banMessage = "";
+    private String banMessage = " ";
 
     public User(Player player){
         this.player = player;
@@ -40,7 +40,7 @@ public class User {
     }
 
     public String getName(){
-        return player.getName();
+        return name;
     }
 
     public boolean isAfk() {

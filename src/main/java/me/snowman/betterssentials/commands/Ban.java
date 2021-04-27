@@ -28,15 +28,18 @@ public class Ban implements CommandExecutor {
         }
         user.setBanned(true);
         if(args.length == 1){
+            if(user.getBanMessage() == null) user.setBanMessage("");
             user.setBanMessage(langManager.getMessage(user, "DefaultBan"));
-            user.getPlayer().kickPlayer(user.getBanMessage());
+            if(user.getPlayer() != null) user.getPlayer().kickPlayer(user.getBanMessage());
             userManager.announceMessage(langManager.getMessage(user, "BanMessage"));
+            userManager.saveUser(user);
             return true;
         }
         String reason = String.join(" ", Arrays.stream(args).skip(1).toArray(String[]::new));
         user.setBanMessage(langManager.getMessage(null, "YouBanned").replace("%reason%", reason));
         user.getPlayer().kickPlayer(user.getBanMessage());
         userManager.announceMessage(langManager.getMessage(user, "BanMessage"));
+        userManager.saveUser(user);
         return true;
     }
 }

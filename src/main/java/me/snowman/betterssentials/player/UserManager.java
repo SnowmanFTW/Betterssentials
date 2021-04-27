@@ -58,14 +58,14 @@ public class UserManager {
     public User createOfflineUser(OfflinePlayer player){
         User user = new User(player.getName());
         if(!userManager.existsPlayer(player.getUniqueId())) {
-            userManager.setupPlayer(user);
-            userManager.getPlayer(user).set("balance", 0);
-            userManager.getPlayer(user).set("banned", false);
-            userManager.savePlayer();
+            user.setBalance(0);
+            user.setBanned(false);
+            user.setBanMessage(" ");
+        }else{
+            user.setBalance(userManager.getPlayer(user).getInt("balance"));
+            user.setBanned(userManager.getPlayer(user).getBoolean("banned"));
+            user.setBanMessage(userManager.getPlayer(user).getString("ban-message"));
         }
-        user.setBalance(userManager.getPlayer(user).getInt("balance"));
-        user.setBanned(userManager.getPlayer(user).getBoolean("banned"));
-        user.setBanMessage(userManager.getPlayer(user).getString("ban-message"));
         return user;
     }
 
@@ -89,5 +89,6 @@ public class UserManager {
     public void announceMessage(String message){
         String finalMessage = ChatColor.translateAlternateColorCodes('&', message);
         getServer().getOnlinePlayers().forEach(player -> player.sendMessage(finalMessage));
+        getServer().getConsoleSender().sendMessage(finalMessage);
     }
 }

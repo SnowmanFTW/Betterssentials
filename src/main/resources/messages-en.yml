@@ -22,5 +22,5 @@ YouBanned: "&cYou have been banned.\n &6Reason:&r %reason%"
 
 #Unban command
 UnbanUsage: "&cUsage: /%command% <player>"
-Unbanned: "&6Player &4%player% &6unbanned &c%target%&6."
+Unbanned: "&6Player &4%player% &6unbanned."
 NotBanned: "&6That player is not banned"
