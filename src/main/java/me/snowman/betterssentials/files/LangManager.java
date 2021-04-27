@@ -44,6 +44,10 @@ public class LangManager {
         return replacePlaceholders(user ,getMessages().getString("Prefix") + getMessages().getString(key));
     }
 
+    public String getPlainMessage(String key){
+        return getMessages().getString(key);
+    }
+
     public String replacePlaceholders(User user, String message){
         //Player related placeholders
         if(user != null) {
@@ -55,5 +59,14 @@ public class LangManager {
         //Other placeholders
         message = message.replace("%money_sign%", Objects.requireNonNull(betterssentials.getConfig().getString("money-sign")));
         return ChatColor.translateAlternateColorCodes('&', message);
+    }
+
+    public boolean checkInt(String string){
+        try{
+            Integer.parseInt(string);
+        }catch (NumberFormatException e){
+            return false;
+        }
+        return true;
     }
 }

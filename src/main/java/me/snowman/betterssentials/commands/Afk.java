@@ -34,7 +34,7 @@ public class Afk implements CommandExecutor {
             return true;
         }
         user = userManager.getUser(args[0]);
-        if(user == null){
+        if(user.getPlayer() == null){
             sender.sendMessage(langManager.getMessage(null, "PlayerNotOnline"));
             return true;
         }

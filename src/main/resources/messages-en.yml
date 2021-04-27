@@ -3,6 +3,7 @@ Prefix: "&6Betterssentials &c>> "
 
 #Other
 PlayerNotOnline: "&cThat player is not online."
+NumberNotValid: "&cThat is not a valid number."
 
 #AFK command
 AFKUsage: "&cUsage: /%command% [player]"
@@ -14,11 +15,32 @@ BalanceUsage: "&cUsage: /%command% [player]"
 BalancePlayer: "&aBalance: &c%money_sign%%money%"
 BalanceTarget: "&aBalance of &4%player%&a: &c%money_sign%%money%"
 
-#Bam command
+#Ban command
 BanUsage: "&cUsage: /%command% <player> [reason]"
 BanMessage: "&6Player &4%player% &6banned. Reason: %reason%"
 DefaultBan: "&cYou have been banned.\n&fThe Ban Hammer has spoken!"
 YouBanned: "&cYou have been banned.\n &6Reason:&r %reason%"
+
+#Broadcast command
+BroadcastUsage: "&cUsage: /%command% <message>"
+Broadcast: "&6[&4Broadcast&6] &a%message%"
+
+#Clearchat command
+ClearchatUsage: "&cUsage: /%command% [lines]"
+ClearedChat: "&6Chat has been cleared by &c%player%"
+
+#ClearInventory command
+ClearinventoryUsage: "&cUsage: /%command% [player]"
+ClearInv: "&6Cleared all inventory items from &4%player%&6."
+
+#Economy command
+EconomyUsage: "&cUsage: /%command% <player> <set/add/remove> <amount>"
+EconomyGiveP: "&a%money_sign%%added% added to &4%player% &aaccount. New balance: %money_sign%%money%"
+EconomyGiveT: "&a%money_sign%%added% has been added to your account."
+EconomySetP: "&aYou set &4%player%&a's balance to %money_sign%%money%."
+EconomySetT: "&aYour balance was set to %money_sign%%money%."
+EconomyTakeP: "&a%money_sign%%removed% taken from &4%player% &aaccount. New balance: %money_sign%%money%."
+EconomyTakeT: "&a%money_sign%%removed% has been taken from your account."
 
 #Unban command
 UnbanUsage: "&cUsage: /%command% <player>"

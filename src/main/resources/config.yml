@@ -1,2 +1,6 @@
+#What language should the plugin be in? Languages supported: en,ro,es,pl,fr
 lang: en
+#What sign should be used for balance?
 money-sign: "$"
+#This is the default lines that will be cleared when the clearchat command will be executed
+clear-chat-lines: 75

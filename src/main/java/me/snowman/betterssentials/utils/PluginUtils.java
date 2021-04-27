@@ -1,16 +1,14 @@
 package me.snowman.betterssentials.utils;
 
 import me.snowman.betterssentials.Betterssentials;
-import me.snowman.betterssentials.commands.Afk;
-import me.snowman.betterssentials.commands.Balance;
-import me.snowman.betterssentials.commands.Ban;
-import me.snowman.betterssentials.commands.Unban;
+import me.snowman.betterssentials.commands.*;
 import me.snowman.betterssentials.events.AfkListener;
 import me.snowman.betterssentials.events.BanListener;
 import me.snowman.betterssentials.events.UserInit;
 import me.snowman.betterssentials.files.LangManager;
 import me.snowman.betterssentials.player.UserManager;
 import org.bukkit.command.CommandExecutor;
+import org.bukkit.event.Listener;
 
 import java.util.Objects;
 
@@ -28,16 +26,24 @@ public class PluginUtils {
         registerCommand("afk", new Afk(userManager, langManager));
         registerCommand("balance", new Balance(userManager, langManager));
         registerCommand("ban", new Ban(userManager, langManager));
+        registerCommand("broadcast", new Broadcast(userManager, langManager));
+        registerCommand("clearchat", new ClearChat(userManager, langManager, betterssentials));
+        registerCommand("clearinventory", new ClearInventory(userManager, langManager));
+        registerCommand("economy", new Economy(userManager, langManager));
         registerCommand("unban", new Unban(userManager, langManager));
     }
 
     public void registerEvents(){
-        betterssentials.getServer().getPluginManager().registerEvents(new AfkListener(userManager, langManager), betterssentials);
-        betterssentials.getServer().getPluginManager().registerEvents(new UserInit(userManager), betterssentials);
-        betterssentials.getServer().getPluginManager().registerEvents(new BanListener(userManager), betterssentials);
+        registerEvent(new AfkListener(userManager, langManager));
+        registerEvent(new UserInit(userManager));
+        registerEvent(new BanListener(userManager));
     }
 
-    public void registerCommand(String command, CommandExecutor commandClass){
+    private void registerCommand(String command, CommandExecutor commandClass){
         Objects.requireNonNull(betterssentials.getCommand(command)).setExecutor(commandClass);
+    }
+
+    private void registerEvent(Listener listenerClass){
+        betterssentials.getServer().getPluginManager().registerEvents(listenerClass, betterssentials);
     }
 }

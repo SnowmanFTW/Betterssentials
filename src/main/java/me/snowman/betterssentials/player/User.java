@@ -3,6 +3,7 @@ package me.snowman.betterssentials.player;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.OfflinePlayer;
+import org.bukkit.command.CommandSender;
 import org.bukkit.conversations.Conversable;
 import org.bukkit.entity.HumanEntity;
 import org.bukkit.entity.Player;
@@ -29,6 +30,17 @@ public class User {
         this.player = Bukkit.getPlayer(playerName);
         this.uuid = Bukkit.getOfflinePlayer(playerName).getUniqueId();
         this.name = playerName;
+    }
+
+    public User(CommandSender sender){
+        if(sender instanceof Player){
+            this.player = (Player) sender;
+            this.uuid = player.getUniqueId();
+        }else{
+            this.player = null;
+            this.uuid = null;
+        }
+        this.name = sender.getName();
     }
 
     public Player getPlayer() {

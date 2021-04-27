@@ -3,6 +3,7 @@ package me.snowman.betterssentials.player;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.OfflinePlayer;
+import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
 import java.util.ArrayList;
@@ -38,6 +39,14 @@ public class UserManager {
             }
         }
         return createUser(player);
+    }
+
+    public User getUser(CommandSender sender){
+        if(sender instanceof Player){
+            return getUser((Player) sender);
+        }else{
+            return getUser(sender.getName());
+        }
     }
 
     public User createUser(Player player){
@@ -90,5 +99,10 @@ public class UserManager {
         String finalMessage = ChatColor.translateAlternateColorCodes('&', message);
         getServer().getOnlinePlayers().forEach(player -> player.sendMessage(finalMessage));
         getServer().getConsoleSender().sendMessage(finalMessage);
+    }
+
+    public void announceUsersMessage(String message){
+        String finalMessage = ChatColor.translateAlternateColorCodes('&', message);
+        getServer().getOnlinePlayers().forEach(player -> player.sendMessage(finalMessage));
     }
 }

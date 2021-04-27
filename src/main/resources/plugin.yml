@@ -18,6 +18,28 @@ commands:
   ban:
     description: Ban someone from the server
     usage: /<command> <player> [reason]
+  broadcast:
+    description: Broadcast a message to the whole server
+    usage: /<command> <message>
+    aliases:
+      - bc
+  clearchat:
+    description: Clears the server chat
+    usage: /<command> [lines]
+    aliases:
+      - cc
+  clearinventory:
+    description: Clears your inventory
+    usage: /<command> [player]
+    aliases:
+      - clear
+      - clearinv
+      - ci
+  economy:
+    description: Manage the economy of a player
+    usage: /<command> <player> <set/add/remove> <amount>
+    aliases:
+      - eco
   unban:
     description: Unban someone from the server
     usage: /<command> <player>
@@ -28,5 +50,11 @@ permissions:
     description: Permission of balance command
   betterssentials.ban:
     description: Permission of ban command
+  betterssentials.broadcast:
+    description: Permission of broadcast command
+  betterssentials.clearchat:
+    description: Permission of clearchat comand
+  betterssentials.economy:
+    description: Permission of economy command
   betterssentials.unban:
     description: Permission of unban command
