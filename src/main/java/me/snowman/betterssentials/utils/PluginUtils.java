@@ -30,6 +30,7 @@ public class PluginUtils {
         registerCommand("clearchat", new ClearChat(userManager, langManager, betterssentials));
         registerCommand("clearinventory", new ClearInventory(userManager, langManager));
         registerCommand("economy", new Economy(userManager, langManager));
+        registerCommand("experience", new Experience(userManager, langManager));
         registerCommand("unban", new Unban(userManager, langManager));
     }
 

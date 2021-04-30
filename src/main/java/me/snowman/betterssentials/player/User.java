@@ -90,4 +90,10 @@ public class User {
     public void setBanMessage(String banMessage) {
         this.banMessage = banMessage;
     }
+
+    public void resetXp(){
+        player.setExp(0);
+        player.setLevel(0);
+        player.setTotalExperience(0);
+    }
 }

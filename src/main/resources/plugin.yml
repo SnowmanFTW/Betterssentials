@@ -40,6 +40,12 @@ commands:
     usage: /<command> <player> <set/add/remove> <amount>
     aliases:
       - eco
+  experience:
+    description: Manage the xp of a plyer
+    usage: /<command> <player> <set/add> <amount>
+    aliases:
+      - xp
+      - exp
   unban:
     description: Unban someone from the server
     usage: /<command> <player>
@@ -56,5 +62,7 @@ permissions:
     description: Permission of clearchat comand
   betterssentials.economy:
     description: Permission of economy command
+  betterssentials.experience:
+    description: Permission of experience command
   betterssentials.unban:
     description: Permission of unban command

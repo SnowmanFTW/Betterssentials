@@ -42,6 +42,11 @@ EconomySetT: "&aYour balance was set to %money_sign%%money%."
 EconomyTakeP: "&a%money_sign%%removed% taken from &4%player% &aaccount. New balance: %money_sign%%money%."
 EconomyTakeT: "&a%money_sign%%removed% has been taken from your account."
 
+#Experience command
+ExperienceUsage: "&cUsage: /%command% <player> <set/add> <amount>"
+ShowXp: "&4%player% &6has &c%xp% &6exp (level &c%level%&6) and needs &c%morexp% &6more exp to level up."
+XpNow: "&4%player%&6 now has &c%xp% exp."
+
 #Unban command
 UnbanUsage: "&cUsage: /%command% <player>"
 Unbanned: "&6Player &4%player% &6unbanned."
