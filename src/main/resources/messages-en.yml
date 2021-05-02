@@ -47,6 +47,11 @@ ExperienceUsage: "&cUsage: /%command% <player> <set/add> <amount>"
 ShowXp: "&4%player% &6has &c%xp% &6exp (level &c%level%&6) and needs &c%morexp% &6more exp to level up."
 XpNow: "&4%player%&6 now has &c%xp% exp."
 
+#Fly command
+FlyUsage: "&cUsage: /%command% [player]"
+FlyEnabled: "&6Set fly mode &cenabled &6for &4%player%&6."
+FlyDisabled: "&6Set fly mode &cdisabled &6for &4%player%&6."
+
 #Unban command
 UnbanUsage: "&cUsage: /%command% <player>"
 Unbanned: "&6Player &4%player% &6unbanned."

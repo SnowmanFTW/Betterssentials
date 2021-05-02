@@ -31,6 +31,7 @@ public class PluginUtils {
         registerCommand("clearinventory", new ClearInventory(userManager, langManager));
         registerCommand("economy", new Economy(userManager, langManager));
         registerCommand("experience", new Experience(userManager, langManager));
+        registerCommand("fly", new Fly(userManager, langManager));
         registerCommand("unban", new Unban(userManager, langManager));
     }
 
