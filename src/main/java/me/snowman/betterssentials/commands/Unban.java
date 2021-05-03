@@ -18,7 +18,7 @@ public class Unban implements CommandExecutor {
 
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
-        if(args.length < 1){ sender.sendMessage(langManager.getMessage(null, "UnbanUsage").replace("%command%", label)); return true;}
+        if(args.length < 1){ sender.sendMessage(langManager.getUsage("unban", label)); return true;}
         User user = userManager.getUser(args[0]);
         if(user.isBanned()) {
             user.setBanned(false);

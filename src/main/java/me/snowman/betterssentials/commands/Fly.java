@@ -19,16 +19,10 @@ public class Fly implements CommandExecutor {
 
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
-        if(args.length == 0 && !(sender instanceof Player)){ sender.sendMessage(langManager.getMessage(null, "FlyUsage").replace("%command%", label)); return true;}
-        User user;
-        if(args.length == 0){
-            Player player = (Player) sender;
-            user = userManager.getUser(player);
-        }else user = userManager.getUser(args[0]);
-        if(user.getPlayer() == null){
-            sender.sendMessage(langManager.getMessage(null, "PlayerNotOnline"));
-            return true;
-        }
+        if(args.length == 0 && !(sender instanceof Player)){ sender.sendMessage(langManager.getUsage("fly", label)); return true;}
+        User user = userManager.userCheck(sender, args);
+        if(user == null) return true;
+
         if(user.getPlayer().getAllowFlight()){
             user.getPlayer().setAllowFlight(false);
             user.sendMessage(langManager.getMessage(user, "FlyDisabled"));

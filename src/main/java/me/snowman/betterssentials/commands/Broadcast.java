@@ -19,7 +19,7 @@ public class Broadcast implements CommandExecutor {
 
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
-        if(args.length < 1){ sender.sendMessage(langManager.getMessage(null, "BroadcastUsage").replace("%command%", label)); return true;}
+        if(args.length < 1){ sender.sendMessage(langManager.getUsage("broadcast", label)); return true;}
         String message = String.join(" ", args);
         userManager.announceMessage(langManager.getPlainMessage("Broadcast").replace("%message%", message));
         return true;

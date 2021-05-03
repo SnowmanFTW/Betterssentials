@@ -19,19 +19,10 @@ public class Balance implements CommandExecutor {
 
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
-        if(args.length == 0 && !(sender instanceof Player)){ sender.sendMessage(langManager.getMessage(null, "BalanceUsage").replace("%command%", label)); return true;}
-        User user;
-        if(args.length == 0){
-            Player player = (Player) sender;
-            user = userManager.getUser(player);
-            user.sendMessage(langManager.getMessage(user, "BalancePlayer"));
-            return true;
-        }
-        user = userManager.getUser(args[0]);
-        if(user == null){
-            sender.sendMessage(langManager.getMessage(null, "PlayerNotOnline"));
-            return true;
-        }
+        if(args.length == 0 && !(sender instanceof Player)){ sender.sendMessage(langManager.getUsage("balance", label)); return true;}
+        User user = userManager.userCheck(sender, args);
+        if(user == null) return true;
+
         sender.sendMessage(langManager.getMessage(user, "BalanceTarget"));
         return true;
     }

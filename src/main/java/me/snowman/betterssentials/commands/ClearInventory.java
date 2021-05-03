@@ -20,16 +20,10 @@ public class ClearInventory implements CommandExecutor {
 
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
-        if(args.length == 0 && !(sender instanceof Player)){ sender.sendMessage(langManager.getMessage(null, "ClearinventoryUsage").replace("%command%", label)); return true;}
+        if(args.length == 0 && !(sender instanceof Player)){ sender.sendMessage(langManager.getUsage("clearinventory", label)); return true;}
+        User user = userManager.userCheck(sender, args);
+        if(user == null) return true;
 
-        User user;
-        if(args.length == 0){
-            user = userManager.getUser(sender);
-        }else user = userManager.getUser(args[0]);
-        if(user.getPlayer() == null){
-            sender.sendMessage(langManager.getMessage(null, "PlayerNotOnline"));
-            return true;
-        }
         user.getPlayer().getInventory().clear();
         user.sendMessage(langManager.getMessage(user, "ClearInv"));
         return true;

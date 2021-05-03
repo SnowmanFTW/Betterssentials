@@ -18,12 +18,10 @@ public class Economy implements CommandExecutor {
 
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
-        if(args.length < 3){ sender.sendMessage(langManager.getMessage(null, "EconomyUsage").replace("%command%", label)); return true;}
-        User user = userManager.getUser(args[0]);
-        if(user.getPlayer() == null){
-            sender.sendMessage(langManager.getMessage(null, "PlayerNotOnline"));
-            return true;
-        }
+        if(args.length < 3){ sender.sendMessage(langManager.getUsage("economy", label)); return true;}
+        User user = userManager.userCheck(sender, args);
+        if(user == null) return true;
+
         String action = args[1];
         if(!langManager.checkInt(args[2])){
             sender.sendMessage(langManager.getMessage(null, "NumberNotValid"));

@@ -1,5 +1,6 @@
 package me.snowman.betterssentials.player;
 
+import me.snowman.betterssentials.files.LangManager;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.OfflinePlayer;
@@ -16,9 +17,11 @@ public class UserManager {
     private final List<User> users = new ArrayList<>();
 
     private final me.snowman.betterssentials.files.UserManager userManager;
+    private final LangManager langManager;
 
-    public UserManager(me.snowman.betterssentials.files.UserManager userManager){
+    public UserManager(me.snowman.betterssentials.files.UserManager userManager, LangManager langManager){
         this.userManager = userManager;
+        this.langManager = langManager;
     }
 
     public User getUser(Player player){
@@ -116,6 +119,18 @@ public class UserManager {
             return (int) (4.5*Math.pow(levels, 2)-162.5*levels+2220);
         }
         return -1;
+    }
+
+    public User userCheck(CommandSender sender, String[] args){
+        User user = getUser(sender);
+        if(args.length != 0){
+            user = getUser(args[0]);
+        }
+        if(user.getPlayer() == null){
+            sender.sendMessage(langManager.getMessage(null, "PlayerNotOnline"));
+            return null;
+        }
+        return user;
     }
 
 }

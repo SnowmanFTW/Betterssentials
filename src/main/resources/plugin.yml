@@ -41,13 +41,16 @@ commands:
     aliases:
       - eco
   experience:
-    description: Manage the xp of a plyer
+    description: Manage the xp of a player
     usage: /<command> <player> <set/add> <amount>
     aliases:
       - xp
       - exp
+  feed:
+    description: Set the food level to max of a player
+    usage: /<command> [player]
   fly:
-    description: Allow flying for a plyer
+    description: Allow flying for a player
     usage: /<command> [player]
   unban:
     description: Unban someone from the server
@@ -67,6 +70,8 @@ permissions:
     description: Permission of economy command
   betterssentials.experience:
     description: Permission of experience command
+  betterssentials.feed:
+    description: Permission of feed command
   betterssentials.fly:
     description: Permission of fly command
   betterssentials.unban:

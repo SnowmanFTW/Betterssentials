@@ -19,25 +19,9 @@ public class Afk implements CommandExecutor {
     }
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args){
-        if(args.length == 0 && !(sender instanceof Player)){ sender.sendMessage(langManager.getMessage(null, "AFKUsage").replace("%command%", label)); return true;}
-        User user;
-        if(args.length == 0){
-            Player player = (Player) sender;
-            user = userManager.getUser(player);
-            if(!user.isAfk()){
-                user.setAfk(true);
-                userManager.announceMessage(langManager.getMessage(user, "IsAFK"));
-            }else{
-                user.setAfk(false);
-                userManager.announceMessage(langManager.getMessage(user, "IsNotAFK"));
-            }
-            return true;
-        }
-        user = userManager.getUser(args[0]);
-        if(user.getPlayer() == null){
-            sender.sendMessage(langManager.getMessage(null, "PlayerNotOnline"));
-            return true;
-        }
+        if(args.length == 0 && !(sender instanceof Player)){ sender.sendMessage(langManager.getUsage("afk", label)); return true;}
+        User user = userManager.userCheck(sender, args);
+        if(user == null) return true;
         if(!user.isAfk()){
             user.setAfk(true);
             userManager.announceMessage(langManager.getMessage(user, "IsAFK"));

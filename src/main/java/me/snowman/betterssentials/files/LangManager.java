@@ -44,8 +44,13 @@ public class LangManager {
         return replacePlaceholders(user ,getMessages().getString("Prefix") + getMessages().getString(key));
     }
 
+    public String getUsage(String command, String label){
+        command = command.substring(0, 1).toUpperCase() + command.substring(1);
+        return getMessage(null, command + "Usage").replace("%command%", label);
+    }
+
     public String getPlainMessage(String key){
-        return getMessages().getString(key);
+        return ChatColor.translateAlternateColorCodes('&', getMessages().getString(key));
     }
 
     public String replacePlaceholders(User user, String message){

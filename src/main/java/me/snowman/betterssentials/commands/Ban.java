@@ -20,24 +20,19 @@ public class Ban implements CommandExecutor {
 
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
-        if(args.length < 1){ sender.sendMessage(langManager.getMessage(null, "BanUsage").replace("%command%", label)); return true;}
-        User user = userManager.getUser(args[0]);
-        if(user == null){
-            sender.sendMessage(langManager.getMessage(null, "PlayerNotOnline"));
-            return true;
-        }
+        if(args.length < 1){ sender.sendMessage(langManager.getUsage("ban", label)); return true;}
+        User user = userManager.userCheck(sender, args);
+        if(user == null) return true;
+
         user.setBanned(true);
         if(args.length == 1){
             if(user.getBanMessage() == null) user.setBanMessage("");
             user.setBanMessage(langManager.getMessage(user, "DefaultBan"));
-            if(user.getPlayer() != null) user.getPlayer().kickPlayer(user.getBanMessage());
-            userManager.announceMessage(langManager.getMessage(user, "BanMessage"));
-            userManager.saveUser(user);
-            return true;
+        }else{
+            String reason = String.join(" ", Arrays.stream(args).skip(1).toArray(String[]::new));
+            user.setBanMessage(langManager.getMessage(null, "YouBanned").replace("%reason%", reason));
         }
-        String reason = String.join(" ", Arrays.stream(args).skip(1).toArray(String[]::new));
-        user.setBanMessage(langManager.getMessage(null, "YouBanned").replace("%reason%", reason));
-        user.getPlayer().kickPlayer(user.getBanMessage());
+        if(user.getPlayer() != null) user.getPlayer().kickPlayer(user.getBanMessage());
         userManager.announceMessage(langManager.getMessage(user, "BanMessage"));
         userManager.saveUser(user);
         return true;

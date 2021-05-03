@@ -6,7 +6,7 @@ PlayerNotOnline: "&cThat player is not online."
 NumberNotValid: "&cThat is not a valid number."
 
 #AFK command
-AFKUsage: "&cUsage: /%command% [player]"
+AfkUsage: "&cUsage: /%command% [player]"
 IsAFK: "&7* &4%player% &7is now AFK."
 IsNotAFK: "&7* &4%player% &7is no longer AFK."
 
@@ -46,6 +46,10 @@ EconomyTakeT: "&a%money_sign%%removed% has been taken from your account."
 ExperienceUsage: "&cUsage: /%command% <player> <set/add> <amount>"
 ShowXp: "&4%player% &6has &c%xp% &6exp (level &c%level%&6) and needs &c%morexp% &6more exp to level up."
 XpNow: "&4%player%&6 now has &c%xp% exp."
+
+#Feed command
+FeedUsage: "&cUsage: /%command% [player]"
+Feed: "&6Your appetite was sated."
 
 #Fly command
 FlyUsage: "&cUsage: /%command% [player]"
