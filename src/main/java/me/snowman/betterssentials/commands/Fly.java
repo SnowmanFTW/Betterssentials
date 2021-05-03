@@ -24,16 +24,7 @@ public class Fly implements CommandExecutor {
         if(args.length == 0){
             Player player = (Player) sender;
             user = userManager.getUser(player);
-            if(user.getPlayer().getAllowFlight()){
-                user.getPlayer().setAllowFlight(false);
-                user.sendMessage(langManager.getMessage(user, "FlyDisabled"));
-            }else {
-                user.getPlayer().setAllowFlight(true);
-                user.sendMessage(langManager.getMessage(user, "FlyEnabled"));
-            }
-            return true;
-        }
-        user = userManager.getUser(args[0]);
+        }else user = userManager.getUser(args[0]);
         if(user.getPlayer() == null){
             sender.sendMessage(langManager.getMessage(null, "PlayerNotOnline"));
             return true;

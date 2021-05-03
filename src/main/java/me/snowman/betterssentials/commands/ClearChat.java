@@ -23,18 +23,13 @@ public class ClearChat implements CommandExecutor {
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         User user = userManager.getUser(sender);
         int lines = betterssentials.getConfig().getInt("clear-chat-lines");
-        if(args.length == 0){
-            for(int i = 0; i < lines; i++){
-                userManager.announceUsersMessage(" ");
+        if(args.length != 0){
+            lines = Integer.parseInt(args[0]);
+            if(!langManager.checkInt(args[0])){
+                sender.sendMessage(langManager.getMessage(null, "NumberNotValid"));
+                return true;
             }
-            userManager.announceMessage(langManager.getMessage(user, "ClearedChat"));
-            return true;
         }
-        if(!langManager.checkInt(args[0])){
-            sender.sendMessage(langManager.getMessage(null, "NumberNotValid"));
-            return true;
-        }
-        lines = Integer.parseInt(args[0]);
         for(int i = 0; i < lines; i++){
             userManager.announceUsersMessage(" ");
         }

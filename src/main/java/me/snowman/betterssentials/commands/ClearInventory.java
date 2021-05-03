@@ -25,11 +25,7 @@ public class ClearInventory implements CommandExecutor {
         User user;
         if(args.length == 0){
             user = userManager.getUser(sender);
-            user.getPlayer().getInventory().clear();
-            user.sendMessage(langManager.getMessage(user, "ClearInv"));
-            return true;
-        }
-        user = userManager.getUser(args[0]);
+        }else user = userManager.getUser(args[0]);
         if(user.getPlayer() == null){
             sender.sendMessage(langManager.getMessage(null, "PlayerNotOnline"));
             return true;
