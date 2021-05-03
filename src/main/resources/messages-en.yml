@@ -56,6 +56,10 @@ FlyUsage: "&cUsage: /%command% [player]"
 FlyEnabled: "&6Set fly mode &cenabled &6for &4%player%&6."
 FlyDisabled: "&6Set fly mode &cdisabled &6for &4%player%&6."
 
+#Gamemode command:
+GamemodeUsage: "&cUsage: /%command% <0/1/2/3/survival/creative/adventure/spectator/s/c/a/spec> [player]"
+GmSet: "&6Set game mode &c%gamemode% &6for &4%player%&6."
+
 #Unban command
 UnbanUsage: "&cUsage: /%command% <player>"
 Unbanned: "&6Player &4%player% &6unbanned."

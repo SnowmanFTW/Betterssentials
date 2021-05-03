@@ -52,6 +52,11 @@ commands:
   fly:
     description: Allow flying for a player
     usage: /<command> [player]
+  gamemode:
+    description: Switch gamemode of a player
+    usage: /<command> <0/1/2/3/survival/creative/adventure/spectator/s/c/a/spec> [player]
+    aliases:
+      - gm
   unban:
     description: Unban someone from the server
     usage: /<command> <player>
@@ -74,5 +79,7 @@ permissions:
     description: Permission of feed command
   betterssentials.fly:
     description: Permission of fly command
+  betterssentials.gamemode:
+    description: Permission of gamemode command
   betterssentials.unban:
     description: Permission of unban command

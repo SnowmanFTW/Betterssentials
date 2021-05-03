@@ -33,6 +33,7 @@ public class PluginUtils {
         registerCommand("experience", new Experience(userManager, langManager));
         registerCommand("feed", new Feed(userManager, langManager));
         registerCommand("fly", new Fly(userManager, langManager));
+        registerCommand("gamemode", new Gamemode(userManager, langManager));
         registerCommand("unban", new Unban(userManager, langManager));
     }
 
