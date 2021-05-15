@@ -4,6 +4,7 @@ Prefix: "&6Betterssentials &c>> "
 #Other
 PlayerNotOnline: "&cThat player is not online."
 NumberNotValid: "&cThat is not a valid number."
+ItemNotValid: "&cThat is not a valid item."
 
 #AFK command
 AfkUsage: "&cUsage: /%command% [player]"
@@ -59,6 +60,10 @@ FlyDisabled: "&6Set fly mode &cdisabled &6for &4%player%&6."
 #Gamemode command:
 GamemodeUsage: "&cUsage: /%command% <0/1/2/3/survival/creative/adventure/spectator/s/c/a/spec> [player]"
 GmSet: "&6Set game mode &c%gamemode% &6for &4%player%&6."
+
+#Give command:
+GiveUsage: "&cUsage: /%command% <player> <material> [amount]"
+GiveMe: "&6Giving &c%amount% &6of &c%item%&6 to &4%player%&6."
 
 #Unban command
 UnbanUsage: "&cUsage: /%command% <player>"

@@ -57,6 +57,9 @@ commands:
     usage: /<command> <0/1/2/3/survival/creative/adventure/spectator/s/c/a/spec> [player]
     aliases:
       - gm
+  give:
+    description: Give an item to someone
+    usage: /<command> <player> <material> [amount]
   unban:
     description: Unban someone from the server
     usage: /<command> <player>
@@ -81,5 +84,7 @@ permissions:
     description: Permission of fly command
   betterssentials.gamemode:
     description: Permission of gamemode command
+  betterssentials.give:
+    description: Permission of give command
   betterssentials.unban:
     description: Permission of unban command
