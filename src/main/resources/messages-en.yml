@@ -5,6 +5,7 @@ Prefix: "&6Betterssentials &c>> "
 PlayerNotOnline: "&cThat player is not online."
 NumberNotValid: "&cThat is not a valid number."
 ItemNotValid: "&cThat is not a valid item."
+NoConsole: "&cThis command can be used only in-game."
 
 #AFK command
 AfkUsage: "&cUsage: /%command% [player]"
@@ -64,6 +65,26 @@ GmSet: "&6Set game mode &c%gamemode% &6for &4%player%&6."
 #Give command:
 GiveUsage: "&cUsage: /%command% <player> <material> [amount]"
 GiveMe: "&6Giving &c%amount% &6of &c%item%&6 to &4%player%&6."
+
+#God command
+GodUsage: "&cUsage: /%command% [player]"
+GodEnabled: "&6God mode &cenabled &6for &4%player%&6."
+GodDisabled: "&6God mode &cdisabled &6for &4%player%&6."
+
+#Hat command
+EnjoyHat: "&6Enjoy your new hat!"
+HatInHand: "&4You must have something to wear in your hand."
+RetrievedHat: "&6You retrieved your hat."
+
+#Heal command
+HealUsage: "&cUsage: /%command% [player]"
+Healed: "&6You have been healed."
+
+#Kick command
+KickUsage: "&cUsage: /%command% <player> [reason]"
+KickMessage: "&6Player &4%player% &6kicked. Reason: %reason%"
+DefaultKick: "&cYou have been kicked."
+YouKicked: "&cYou have been kicked.\n &6Reason:&r %reason%"
 
 #Unban command
 UnbanUsage: "&cUsage: /%command% <player>"

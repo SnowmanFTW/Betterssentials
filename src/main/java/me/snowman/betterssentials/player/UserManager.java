@@ -123,7 +123,7 @@ public class UserManager {
 
     public User userCheck(CommandSender sender, String[] args, int argsIndex){
         User user = getUser(sender);
-        if(args.length > argsIndex){
+        if(args != null && args.length > argsIndex){
             user = getUser(args[argsIndex]);
         }
         if(user.getPlayer() == null){

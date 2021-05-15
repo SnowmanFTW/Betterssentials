@@ -35,6 +35,10 @@ public class PluginUtils {
         registerCommand("fly", new Fly(userManager, langManager));
         registerCommand("gamemode", new Gamemode(userManager, langManager));
         registerCommand("give", new Give(userManager, langManager));
+        registerCommand("god", new God(userManager, langManager));
+        registerCommand("hat", new Hat(userManager, langManager));
+        registerCommand("heal", new Heal(userManager, langManager));
+        registerCommand("kick", new Kick(userManager, langManager));
         registerCommand("unban", new Unban(userManager, langManager));
     }
 

@@ -60,6 +60,18 @@ commands:
   give:
     description: Give an item to someone
     usage: /<command> <player> <material> [amount]
+  god:
+    description: Make someone invulnerable
+    usage: /<command> [player]
+  hat:
+    description: Put on a new hat on you
+    usage: /<command>
+  heal:
+    description: Set the health level to the max
+    usage: /<command> [player]
+  kick:
+    description: Kick a player from the server
+    usage: /<command> [player]
   unban:
     description: Unban someone from the server
     usage: /<command> <player>
@@ -86,5 +98,13 @@ permissions:
     description: Permission of gamemode command
   betterssentials.give:
     description: Permission of give command
+  betterssentials.god:
+    description: Permission of god command
+  betterssentials.hat:
+    description: Permission of hat command
+  betterssentials.heal:
+    description: Permission of heal command
+  betterssentials.kick:
+    description: Permission of kick command
   betterssentials.unban:
     description: Permission of unban command
