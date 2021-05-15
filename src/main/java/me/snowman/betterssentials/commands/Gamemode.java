@@ -20,15 +20,31 @@ public class Gamemode implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         if(args.length < 1){ sender.sendMessage(langManager.getUsage("gamemode", label)); return true;}
-        User user = userManager.userCheck(sender, args);
-        if(user == null) return true;
-
-        switch (args[0]){
+        User user = userManager.userCheck(sender, args, 1);
+        if (user == null) return true;
+        switch (args[0]) {
             case "0":
             case "survival":
             case "s":
                 user.getPlayer().setGameMode(GameMode.SURVIVAL);
                 break;
+            case "1":
+            case "creative":
+            case "c":
+                user.getPlayer().setGameMode(GameMode.CREATIVE);
+                break;
+            case "2":
+            case "adventure":
+            case "a":
+                user.getPlayer().setGameMode(GameMode.ADVENTURE);
+                break;
+            case "3":
+            case "spectator":
+            case "spec":
+                user.getPlayer().setGameMode(GameMode.SPECTATOR);
+                break;
+            default:
+                sender.sendMessage(langManager.getUsage("gamemode", label)); return true;
         }
         user.sendMessage(langManager.getMessage(user, "GmSet"));
         return true;

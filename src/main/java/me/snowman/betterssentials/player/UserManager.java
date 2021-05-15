@@ -121,10 +121,10 @@ public class UserManager {
         return -1;
     }
 
-    public User userCheck(CommandSender sender, String args){
+    public User userCheck(CommandSender sender, String[] args, int argsNumber){
         User user = getUser(sender);
-        if(args.length != 0){
-            user = getUser(args[0]);
+        if(args.length > argsNumber){
+            user = getUser(args[argsNumber]);
         }
         if(user.getPlayer() == null){
             sender.sendMessage(langManager.getMessage(null, "PlayerNotOnline"));

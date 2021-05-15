@@ -9,6 +9,7 @@ import org.bukkit.entity.HumanEntity;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.messaging.PluginMessageRecipient;
 
+import java.util.Locale;
 import java.util.UUID;
 
 public class User {
@@ -95,5 +96,9 @@ public class User {
         player.setExp(0);
         player.setLevel(0);
         player.setTotalExperience(0);
+    }
+
+    public String getGamemode(){
+        return player.getGameMode().name().toLowerCase();
     }
 }

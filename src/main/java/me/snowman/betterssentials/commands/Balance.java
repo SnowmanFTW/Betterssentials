@@ -20,7 +20,7 @@ public class Balance implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         if(args.length == 0 && !(sender instanceof Player)){ sender.sendMessage(langManager.getUsage("balance", label)); return true;}
-        User user = userManager.userCheck(sender, args);
+        User user = userManager.userCheck(sender, args, 0);
         if(user == null) return true;
 
         sender.sendMessage(langManager.getMessage(user, "BalanceTarget"));
