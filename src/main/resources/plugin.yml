@@ -72,6 +72,15 @@ commands:
   kick:
     description: Kick a player from the server
     usage: /<command> [player]
+  kill:
+    description: Kill a player on the server
+    usage: /<command> <player>
+  list:
+    description: List all players on the server
+    usage: /<command>
+  me:
+    description: Displays a cool message
+    usage: /<command> <message>
   unban:
     description: Unban someone from the server
     usage: /<command> <player>
@@ -106,5 +115,11 @@ permissions:
     description: Permission of heal command
   betterssentials.kick:
     description: Permission of kick command
+  betterssentials.kill:
+    description: Permission of kill command
+  betterssentials.list:
+    description: Permission of list command
+  betterssentials.me:
+    description: Permission of me command
   betterssentials.unban:
     description: Permission of unban command

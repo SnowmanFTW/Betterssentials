@@ -5,10 +5,13 @@ import me.snowman.betterssentials.player.User;
 import me.snowman.betterssentials.player.UserManager;
 import org.bukkit.ChatColor;
 import org.bukkit.configuration.file.YamlConfiguration;
+import org.bukkit.entity.HumanEntity;
 import org.bukkit.entity.Player;
 
 import java.io.File;
+import java.util.Arrays;
 import java.util.Objects;
+import java.util.stream.Collectors;
 
 public class LangManager {
     private final Betterssentials betterssentials;
@@ -65,6 +68,9 @@ public class LangManager {
 
         //Other placeholders
         message = message.replace("%money_sign%", Objects.requireNonNull(betterssentials.getConfig().getString("money-sign")));
+        message = message.replace("%online%", String.valueOf(betterssentials.getServer().getOnlinePlayers().size()));
+        message = message.replace("%max%", String.valueOf(betterssentials.getServer().getMaxPlayers()));
+        message = message.replace("%players%", betterssentials.getServer().getOnlinePlayers().stream().map(HumanEntity::getName).collect(Collectors.joining(", ")));
         return ChatColor.translateAlternateColorCodes('&', message);
     }
 

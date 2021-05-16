@@ -39,6 +39,9 @@ public class PluginUtils {
         registerCommand("hat", new Hat(userManager, langManager));
         registerCommand("heal", new Heal(userManager, langManager));
         registerCommand("kick", new Kick(userManager, langManager));
+        registerCommand("kill", new Kill(userManager, langManager));
+        registerCommand("list", new List(userManager, langManager));
+        registerCommand("me", new Me(userManager, langManager));
         registerCommand("unban", new Unban(userManager, langManager));
     }
 

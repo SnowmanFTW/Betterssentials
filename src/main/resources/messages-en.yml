@@ -86,6 +86,16 @@ KickMessage: "&6Player &4%player% &6kicked. Reason: %reason%"
 DefaultKick: "&cYou have been kicked."
 YouKicked: "&cYou have been kicked.\n &6Reason:&r %reason%"
 
+#Kill command
+KillUsage: "&cUsage: /%command% <player>"
+Kill: "&6Killed &4%player%&6."
+
+#List command
+List: "&6There are &c%online% &6out of maximum &c%max% &6players online.\n&6Players&f: %players%"
+
+#Me command
+Me: "&5* &f%player% &5%message%"
+
 #Unban command
 UnbanUsage: "&cUsage: /%command% <player>"
 Unbanned: "&6Player &4%player% &6unbanned."
