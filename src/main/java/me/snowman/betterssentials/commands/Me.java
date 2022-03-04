@@ -23,6 +23,10 @@ public class Me implements CommandExecutor {
             sender.sendMessage(langManager.getMessage(null, "NoConsole"));
             return true;
         }
+        if(args.length == 0){
+            sender.sendMessage(langManager.getUsage("me", label));
+            return true;
+        }
         User user = userManager.getUser(sender);
         userManager.announceMessage(langManager.getMessage(user, "Me").replace("%message%", String.join(" ", args)));
         return true;

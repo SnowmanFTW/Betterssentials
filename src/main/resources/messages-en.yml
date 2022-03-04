@@ -94,7 +94,14 @@ Kill: "&6Killed &4%player%&6."
 List: "&6There are &c%online% &6out of maximum &c%max% &6players online.\n&6Players&f: %players%"
 
 #Me command
+MeUsage: "&cUsage: /%command% <message>"
 Me: "&5* &f%player% &5%message%"
+
+#Message command
+MessageUsage: "&cUsage: /%command% <player> <message>"
+MessageYourself: "&cYou can't message yourself!"
+MessageSent: "&6[&cme &6-> &4%player%&6] &r%message%"
+MessageReceived: "&6[&4%player% &6-> &cme&6] &r%message%"
 
 #Unban command
 UnbanUsage: "&cUsage: /%command% <player>"
