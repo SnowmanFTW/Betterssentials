@@ -59,10 +59,14 @@ public class UserManager {
             userManager.getPlayer(user).set("balance", 0);
             userManager.getPlayer(user).set("banned", false);
             userManager.savePlayer();
+            user.setBalance(userManager.getPlayer(user).getInt("balance"));
+            user.setBanned(userManager.getPlayer(user).getBoolean("banned"));
+            user.setBanMessage("");
+        }else{
+            user.setBalance(userManager.getPlayer(user).getInt("balance"));
+            user.setBanned(userManager.getPlayer(user).getBoolean("banned"));
+            user.setBanMessage(userManager.getPlayer(user).getString("ban-message"));
         }
-        user.setBalance(userManager.getPlayer(user).getInt("balance"));
-        user.setBanned(userManager.getPlayer(user).getBoolean("banned"));
-        user.setBanMessage(userManager.getPlayer(user).getString("ban-message"));
         users.add(user);
         return user;
     }

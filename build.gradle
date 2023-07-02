@@ -6,9 +6,6 @@ group packagePath
 version '2.0.0'
 sourceCompatibility = 1.11
 
-jar {
-    archiveName 'Betterssentials.jar'
-}
 
 repositories {
     mavenCentral()
@@ -19,9 +16,13 @@ repositories {
 }
 
 dependencies {
-    compileOnly 'org.spigotmc:spigot-api:1.16.5-R0.1-SNAPSHOT'
-    compileOnly "com.github.MilkBowl:VaultAPI:1.7"
+    compileOnly 'org.spigotmc:spigot-api:1.20.1-R0.1-SNAPSHOT'
+    compileOnly "com.github.MilkBowl:VaultAPI:1.7.1"
 }
 test {
     useJUnitPlatform()
+}
+
+jar {
+    destinationDirectory.set(file("C:/Users/snowm/Desktop/bt,server/server/plugins"))
 }

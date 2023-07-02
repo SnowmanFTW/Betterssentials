@@ -81,6 +81,16 @@ commands:
   me:
     description: Displays a cool message
     usage: /<command> <message>
+  message:
+    description: Message another player on the server
+    usage: /<command> <player> <message>
+    aliases:
+      - msg
+  reply:
+    description: Message another player on the server
+    usage: /<command> <message>
+    aliases:
+      - r
   unban:
     description: Unban someone from the server
     usage: /<command> <player>
@@ -121,5 +131,9 @@ permissions:
     description: Permission of list command
   betterssentials.me:
     description: Permission of me command
+  betterssentials.message:
+    description: Permission of message command
+  betterssentials.reply:
+    description: Permission of reply command
   betterssentials.unban:
     description: Permission of unban command
