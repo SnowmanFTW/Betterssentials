@@ -103,6 +103,10 @@ MessageYourself: "&cYou can't message yourself!"
 MessageSent: "&6[&cme &6-> &4%player%&6] &r%message%"
 MessageReceived: "&6[&4%player% &6-> &cme&6] &r%message%"
 
+#Reply command
+ReplyUsage: "&cUsage: /%command% <message>"
+NoReply: "&cYou didn't message anyone yet!"
+
 #Unban command
 UnbanUsage: "&cUsage: /%command% <player>"
 Unbanned: "&6Player &4%player% &6unbanned."

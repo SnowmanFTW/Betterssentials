@@ -42,6 +42,8 @@ public class PluginUtils {
         registerCommand("kill", new Kill(userManager, langManager));
         registerCommand("list", new List(userManager, langManager));
         registerCommand("me", new Me(userManager, langManager));
+        registerCommand("message", new Message(userManager, langManager));
+        registerCommand("reply", new Reply(userManager, langManager));
         registerCommand("unban", new Unban(userManager, langManager));
     }
 

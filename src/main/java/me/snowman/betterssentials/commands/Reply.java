@@ -10,11 +10,11 @@ import org.bukkit.entity.Player;
 
 import java.util.Arrays;
 
-public class Message implements CommandExecutor {
+public class Reply implements CommandExecutor {
     private final UserManager userManager;
     private final LangManager langManager;
 
-    public Message(UserManager userManager, LangManager langManager){
+    public Reply(UserManager userManager, LangManager langManager){
         this.userManager = userManager;
         this.langManager = langManager;
     }
@@ -24,24 +24,22 @@ public class Message implements CommandExecutor {
             sender.sendMessage(langManager.getMessage(null, "NoConsole"));
             return true;
         }
-        if(args.length < 2){
-            sender.sendMessage(langManager.getUsage("message", label));
+        if(args.length < 1){
+            sender.sendMessage(langManager.getUsage("reply", label));
             return true;
         }
         User user = userManager.getUser(sender);
-        User receiver = userManager.getUser(args[0]);
-        if(receiver.getName().equalsIgnoreCase(user.getName())){
-            user.sendMessage(langManager.getMessage(user, "MessageYourself"));
+        User receiver = user.getLastMessage();
+        if(receiver == null){
+            user.sendMessage(langManager.getMessage(user, "NoReply"));
             return true;
         }
         if(receiver.getPlayer() == null){
             user.sendMessage(langManager.getMessage(user, "PlayerNotOnline"));
             return true;
         }
-        String[] actualMsg = Arrays.copyOfRange(args, 1, args.length);
-        user.sendMessage(langManager.getMessage(receiver, "MessageSent").replace("%message%", String.join(" ", actualMsg)));
-        user.setLastMessage(receiver);
-        receiver.sendMessage(langManager.getMessage(user, "MessageReceived").replace("%message%", String.join(" ", actualMsg)));
+        user.sendMessage(langManager.getMessage(receiver, "MessageSent").replace("%message%", String.join(" ", args)));
+        receiver.sendMessage(langManager.getMessage(user, "MessageReceived").replace("%message%", String.join(" ", args)));
         return true;
     }
 }

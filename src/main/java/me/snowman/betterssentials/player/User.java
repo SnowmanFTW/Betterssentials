@@ -17,9 +17,11 @@ public class User {
     private final String name;
     private final UUID uuid;
     private boolean isAfk = false;
+
+    private User lastMessage;
     private int balance = 0;
     private boolean banned = false;
-    private String banMessage = " ";
+    private String banMessage = "";
 
     public User(Player player){
         this.player = player;
@@ -100,5 +102,13 @@ public class User {
 
     public String getGamemode(){
         return player.getGameMode().name().toLowerCase();
+    }
+
+    public User getLastMessage() {
+        return lastMessage;
+    }
+
+    public void setLastMessage(User lastMessage) {
+        this.lastMessage = lastMessage;
     }
 }
