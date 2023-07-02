@@ -1,6 +1,6 @@
 language: java
 jdk:
-  - openjdk11
+  - openjdk17
 cache:
   directories:
     - $HOME/.m2/
@@ -9,7 +9,7 @@ install:
     wget
     https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar
   - >-
-    ls $HOME/.m2/repository/org/spigotmc/spigot/1.16.5-R0.1-SNAPSHOT >>
-    /dev/null 2>&1 || java -jar BuildTools.jar --rev 1.16.5 >> /dev/null 2>&1
+    ls $HOME/.m2/repository/org/spigotmc/spigot/1.20.1-R0.1-SNAPSHOT >>
+    /dev/null 2>&1 || java -jar BuildTools.jar --rev 1.20.1 >> /dev/null 2>&1
 script:
   - gradle build
