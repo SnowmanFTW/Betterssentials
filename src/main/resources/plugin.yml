@@ -86,6 +86,9 @@ commands:
     usage: /<command> <player> <message>
     aliases:
       - msg
+  mute:
+    description: Mute another player on the server
+    usage: /<command> <player> [reason]
   reply:
     description: Message another player on the server
     usage: /<command> <message>
@@ -133,6 +136,8 @@ permissions:
     description: Permission of me command
   betterssentials.message:
     description: Permission of message command
+  betterssentials.mute:
+    description: Permission of mute command
   betterssentials.reply:
     description: Permission of reply command
   betterssentials.unban:

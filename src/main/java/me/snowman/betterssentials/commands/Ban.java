@@ -30,7 +30,7 @@ public class Ban implements CommandExecutor {
             user.setBanMessage(langManager.getMessage(user, "DefaultBan"));
         }else{
             String reason = String.join(" ", Arrays.stream(args).skip(1).toArray(String[]::new));
-            user.setBanMessage(langManager.getMessage(null, "YouBanned").replace("%reason%", reason));
+            user.setBanMessage(langManager.getMessage(null, "YouBanned").replace("%breason%", reason));
         }
         if(user.getPlayer() != null) user.getPlayer().kickPlayer(user.getBanMessage());
         userManager.announceMessage(langManager.getMessage(user, "BanMessage"));

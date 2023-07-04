@@ -21,7 +21,11 @@ public class User {
     private User lastMessage;
     private int balance = 0;
     private boolean banned = false;
+
+    private boolean muted = false;
     private String banMessage = "";
+
+    private String muteMessage = "";
 
     public User(Player player){
         this.player = player;
@@ -110,5 +114,21 @@ public class User {
 
     public void setLastMessage(User lastMessage) {
         this.lastMessage = lastMessage;
+    }
+
+    public boolean isMuted() {
+        return muted;
+    }
+
+    public void setMuted(boolean muted) {
+        this.muted = muted;
+    }
+
+    public String getMuteMessage() {
+        return muteMessage;
+    }
+
+    public void setMuteMessage(String muteMessage) {
+        this.muteMessage = muteMessage;
     }
 }

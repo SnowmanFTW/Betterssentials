@@ -19,9 +19,9 @@ BalanceTarget: "&aBalance of &4%player%&a: &c%money_sign%%money%"
 
 #Ban command
 BanUsage: "&cUsage: /%command% <player> [reason]"
-BanMessage: "&6Player &4%player% &6banned. Reason: %reason%"
+BanMessage: "&6Player &4%player% &6banned. Reason: %breason%"
 DefaultBan: "&cYou have been banned.\n&fThe Ban Hammer has spoken!"
-YouBanned: "&cYou have been banned.\n &6Reason:&r %reason%"
+YouBanned: "&cYou have been banned.\n &6Reason:&r %breason%"
 
 #Broadcast command
 BroadcastUsage: "&cUsage: /%command% <message>"
@@ -82,9 +82,9 @@ Healed: "&6You have been healed."
 
 #Kick command
 KickUsage: "&cUsage: /%command% <player> [reason]"
-KickMessage: "&6Player &4%player% &6kicked. Reason: %reason%"
+KickMessage: "&6Player &4%player% &6kicked. Reason: %breason%"
 DefaultKick: "&cYou have been kicked."
-YouKicked: "&cYou have been kicked.\n &6Reason:&r %reason%"
+YouKicked: "&cYou have been kicked.\n &6Reason:&r %breason%"
 
 #Kill command
 KillUsage: "&cUsage: /%command% <player>"
@@ -102,6 +102,12 @@ MessageUsage: "&cUsage: /%command% <player> <message>"
 MessageYourself: "&cYou can't message yourself!"
 MessageSent: "&6[&cme &6-> &4%player%&6] &r%message%"
 MessageReceived: "&6[&4%player% &6-> &cme&6] &r%message%"
+
+#Mute command
+MuteUsage: "&cUsage: /%command% <player> [reason]"
+MuteMessage: "&6Player &4%player% &6has been muted. Reason: %mreason%"
+DefaultMute: "&cYou have been muted."
+YouMuted: "&cYou have been muted.\n &6Reason:&r %mreason%"
 
 #Reply command
 ReplyUsage: "&cUsage: /%command% <message>"

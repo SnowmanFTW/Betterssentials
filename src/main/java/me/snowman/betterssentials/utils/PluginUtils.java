@@ -4,6 +4,7 @@ import me.snowman.betterssentials.Betterssentials;
 import me.snowman.betterssentials.commands.*;
 import me.snowman.betterssentials.events.AfkListener;
 import me.snowman.betterssentials.events.BanListener;
+import me.snowman.betterssentials.events.MuteListener;
 import me.snowman.betterssentials.events.UserInit;
 import me.snowman.betterssentials.files.LangManager;
 import me.snowman.betterssentials.player.UserManager;
@@ -43,6 +44,7 @@ public class PluginUtils {
         registerCommand("list", new List(userManager, langManager));
         registerCommand("me", new Me(userManager, langManager));
         registerCommand("message", new Message(userManager, langManager));
+        registerCommand("mute", new Mute(userManager, langManager));
         registerCommand("reply", new Reply(userManager, langManager));
         registerCommand("unban", new Unban(userManager, langManager));
     }
@@ -51,6 +53,7 @@ public class PluginUtils {
         registerEvent(new AfkListener(userManager, langManager));
         registerEvent(new UserInit(userManager));
         registerEvent(new BanListener(userManager));
+        registerEvent(new MuteListener(userManager, langManager));
     }
 
     private void registerCommand(String command, CommandExecutor commandClass){

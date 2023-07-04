@@ -61,7 +61,8 @@ public class LangManager {
         if(user != null) {
             message = message.replace("%player%", user.getName());
             message = message.replace("%money%", String.valueOf(user.getBalance()));
-            message = message.replace("%reason%", Objects.requireNonNullElse(user.getBanMessage(), ""));
+            message = message.replace("%breason%", Objects.requireNonNullElse(user.getBanMessage(), ""));
+            message = message.replace("%mreason%", Objects.requireNonNullElse(user.getMuteMessage(), ""));
             message = message.replace("%xp%", String.valueOf(user.getPlayer().getTotalExperience()));
             message = message.replace("%gamemode%", user.getGamemode());
         }
